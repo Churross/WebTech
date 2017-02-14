@@ -1,0 +1,9 @@
+<div class="column order" ng-repeat="order in orders | orderBy:'status' | limitTo: 10" ng-class="{'order-finished': order.status}">
+    <h4>Table {[order.user]}<i ng-hide="order.status" class="close material-icons" ng-click="updateStatus(order)">done</i></h4>
+    <ul class="leaders">
+        <li ng-repeat="item in order.items">
+            <span>{[item.name]}</span>
+            <span>{[item.amount]}</span>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,10 @@
+<div class="column category" ng-repeat="category in categories | orderBy: 'category_name'">
+    <h4>{[category.category_name | titlecase]}<i class="close material-icons" ng-click="deleteUser(user)">clear</i></h4>
+</div>
+
+<div class="column category input">
+    <form ng-submit="createCategory()">
+        <input type="text" ng-model="newCategory.category_name" class="category" placeholder="Category" />
+        <input type="submit" class="button radius" value="Send" />
+    </form>
+</div>

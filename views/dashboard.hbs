@@ -1,0 +1,35 @@
+<div class="off-canvas-wrapper" ng-app="dashboardApp">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+        <div class="off-canvas position-left" id="my-info" data-off-canvas data-position="left">
+            <div class="row column">
+                <br>
+                <h5>Navigation</h5>
+                <ul style="list-style-type: none">
+                    <li><a href="#orders">Orders</a></li>
+                    <li><a href="#items">Items</a></li>
+                    <li><a href="#users">Tables</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="off-canvas-content" data-off-canvas-content>
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <button class="menu-icon" type="button" data-open="my-info"></button>
+                    <span class="title-bar-title">Navigation and order</span>
+                </div>
+            </div>
+            <div class="callout primary">
+                <div class="row column">
+                    <h1>Welcome to Order @ Table Dashboard</h1>
+                </div>
+            </div>
+            <div ng-view class="row small-up-2 medium-up-3 large-up-5 app-view">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).foundation();
+</script>

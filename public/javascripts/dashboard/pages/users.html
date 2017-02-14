@@ -1,0 +1,4 @@
+<div class="column user" ng-repeat="user in users | dateLessThanNow | orderBy: 'table'">
+    <h4>Table {[user.table]}<i class="close material-icons" ng-click="deleteUser(user)">clear</i></h4>
+    Until: {[user.expiresAt | date: 'HH:mm dd MMM']}
+</div>

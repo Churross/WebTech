@@ -1,0 +1,15 @@
+<div class="column item" ng-repeat="item in items | orderBy: 'category'">
+    <h4>{[item.name]}<i class="close material-icons" ng-click="deleteItem(item)">clear</i></h4>
+    Price: {[item.price | currency: "&#8364;"]}<br/>
+    Category: {[item.category | titlecase]}
+</div>
+<div class="column item input">
+    <form ng-submit="createItem()">
+        <input type="text" ng-model="newItem.name" class="name" placeholder="Name" />
+        <input type="number" ng-model="newItem.price" min="0.01" step="0.01" class="price" placeholder="Price" />
+        <select ng-model="newItem.category">
+            <option ng-repeat="category in categories" value="{[category.category_name]}">{[category.category_name | titlecase]}</option>
+        </select>
+        <input type="submit" class="button radius" value="Send" />
+    </form>
+</div>

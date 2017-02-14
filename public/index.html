@@ -1,0 +1,78 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Order @ Table</title>
+    <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <!--JS Source-->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script src="javascripts/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <!--Angular scripts-->
+    <script src="javascripts/app.js"></script>
+    <script src="javascripts/itemController.js"></script>
+    <!--Directives-->
+    <script src="javascripts/itemDisplay.js"></script>
+    <script src="javascripts/orderDisplay.js"></script>
+    <script src="javascripts/categoryDisplay.js"></script>
+</head>
+<body>
+<div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+        <div class="off-canvas position-left" id="my-info" data-off-canvas data-position="left">
+            <div class="row column">
+                <br>
+                <h5>Order</h5>
+                <div class="orderBox" ng-controller="orderController">
+                    <div ng-repeat="item in items">
+                        <order-display item="item" ng-click="changeAmount(item)"></order-display>
+                    </div>
+                    <button class="button large expanded" ng-disabled="buttonDisable()" ng-click="postOrder()">Post Order</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="off-canvas-content" data-off-canvas-content>
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <button class="menu-icon" type="button" data-open="my-info"></button>
+                    <span class="title-bar-title">Order</span>
+                </div>
+            </div>
+            <div class="callout primary">
+                <div class="row column">
+                    <h1>Welcome to Order @ Table</h1>
+                    <p class="lead">Please search through the menu and select the dishes you want. Confirm your order and enjoy your meal!</p>
+                </div>
+            </div>
+            <div class="row small-up-2 medium-up-3 large-up-4" ng-controller="itemsController">
+                <ul class="tabs" data-tabs id="example-tabs">
+                    <category-display data-ng-click="filterSet(category.category_name)" category="category" ng-repeat="category in categories"></category-display>
+                </ul>
+
+                <div class="column" ng-repeat="item in items | typeFilter">
+                    <item-display item="item" ng-click="itemClick(item)"></item-display>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <h3>Get assistance</h3>
+                    <p>Please click on the button below in case you need someone of our personnel.</p>
+                    <a href="#" class="button large expanded">Get Assistance</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<script src="/public/javascripts/foundation.js"></script>-->
+<script>
+    $(document).foundation();
+</script>
+</body>
+</html>
+

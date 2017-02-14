@@ -1,0 +1,33 @@
+<div class="info">
+<h2 id="general">General</h2>
+<p>Post your thoughts is a web app where you can easily share your thoughts. The web app is built on a MEAN stack. Furthermore, you can read the 10 latest posts from all users. The website is hosted on Microsoft’s cloud service Azure and can be found here: <a href="http://2id60-a2.azurewebsites.net">2id60-a2.azurewebsites.net</a>.</p>
+
+<h3 id="testing">Testing</h3>
+<p>The layout and styling of the first assignment is reused, which reduced the time spent testing.</p>
+<p>For testing, I used multiple devices and browsers. On a desktop PC running Windows 10, I tested the website using the webkit browsers Google Chrome and Vivaldi, and Mozilla Firefox. On a notebook running Windows 8.1, the website was tested in both Google Chrome and Mozilla Firefox. Furthermore, an iPad with iOS 8.1 and Safari was used for testing. Lastly, a Samsung Galaxay S III on Android 4.3 with both Google Chrome and the default browser was used.</p>
+<p>On all the devices and browsers, the website loaded, responded as expected and the website scaled nicely on smaller screens and window sizes.</p>
+
+<h2 id="design">Design</h2>
+<p>As stated earlier, the layout and styling of MultiWeather. The website’s design is based on Google’s Material Design standard. One of the main features of this standard is the use of the so called cards. This feature is used to seperate each location. Also a floating action button is used to add additional cards. Error messages are shown using the standard’s snackbar feature. Lastly, the website’s colours use the same scheme for main and accent colours as stated in the standard.</p>
+<p>Furthermore, <a href="https://www.angularjs.org/">AngularJS</a> as a front-end framework. Each content and input card is a template implemented by AngularJS. It also handles the communication with the back-end.</p>
+
+<h2 id="database">Database</h2>
+<p>The web app uses a MongoDB storage hostend on <a href="http://www.mongolab.com">MongoLab</a>, which is fully managed MongoDB-as-a-Service. The posts stored has a couple of data fields: title, content, author, timestamp, id, and public id. There is a difference between the two ids. The public id can be used to look the post up. But the normal id is also used for deleting the post. The NodeJS back-end connects to the MongoLab server.</p>
+
+<h2 id="interaction">Interaction</h2>
+<h3 id="forms">Forms</h3>
+<p>The user can create a new post with input card, which is always located at the end. When the user fills in all the fields and sumbits its post, the post will be sent to the back-end.</p>
+<h3 id="posts">Posts</h3>
+<p>The only interaction a user has with the posts, is with their own recently created ones. When they create a post, they can delete it by clicking on the cross in the upper right corner as long as it is in the same session. As soon as the user leaves or refreshs the page, the session is killed and the post is permanently stored.</p>
+<h3 id="notifications">Notifications</h3>
+<p>When the user does not fill in the required fields (title, content or author), a snackbar wil pop up to notify the user of this requirement.</p>
+
+<h2 id="rest-api">REST API</h2>
+<p>The REST API has multiple commands. They all start with the base URL (<a href="http://2id60-a2.azurewebsites.net">2id60-a2.azurewebsites.net</a>).</p>
+<dl>
+    <dt>GET posts</dt><dd><p>Retrieves the 5 newest posts. A post consists of the following fields: title, content, author, date, and pub<sub>i</sub>d.</p></dd>
+    <dt>GET posts\&lt;ID&gt;</dt><dd><p>Retrieves the post with the same ID (can both be normal and public ID). A post consists of the following fields: title, content, author, date, and pub<sub>i</sub>d.</p></dd>
+    <dt>POST posts</dt><dd><p>Requires the following fields: title, content, and author. It returns the post with the previous fields and the following fields: date, pub<sub>i</sub>d, and id. Pub<sub>i</sub>d is only used for retrieving the post, but id is also used for deleting the post.</p></dd>
+    <dt>DELETE posts\&lt;ID&gt;</dt><dd><p>Deletes the post with the same id as the parameter (NOT the pub<sub>i</sub>d).</p></dd>
+</dl>
+</div>
